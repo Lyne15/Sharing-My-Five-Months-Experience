@@ -1,0 +1,40 @@
+html, body{
+    height: 100%;
+    margin:0;
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEE;
+}
+
+header{
+    font-size: 4em;
+    background-color: aqua;
+    display: flex;
+   
+
+}
+
+#lorem{
+    font-size: 2em;
+    background-color: pink;
+    flex-grow: 1;
+    padding-top: 2em;
+    padding-left: 1em;
+    
+}
+
+.dialog{
+    background-color: white;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+

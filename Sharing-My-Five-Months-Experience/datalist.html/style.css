@@ -1,0 +1,201 @@
+html body {
+    margin: 0;
+    display: flex;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+#movieTitle {
+    color: white;
+
+}
+
+#genres{
+    color: white;
+}
+
+#movie-list {
+    display: flex;
+    padding-top: 2em;
+    max-width: 60em;
+    display: flex;
+    overflow: scroll;
+    background-color: black;
+    border: 2px solid white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+
+
+}
+
+
+
+*{
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    border: 1px solid black;
+    background-color: white;
+}
+
+nav .menu{
+    display: flex;
+}
+
+nav .menu li a{
+    height: 40px;
+    line-height: 43px;
+    margin: 0px;
+    padding: 0px 22px;
+    display: flex;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: gray;
+    letter-spacing: 1px;
+}
+
+.search{
+    width: 250px;
+    height: 40px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0px 20px;
+    display: flex;
+   
+}
+
+.menu{
+    display: flex;
+    /* flex-direction: column;  */
+    flex-direction: row;
+
+
+}
+
+#content{
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+
+.search input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.search{
+    color: gray;
+}
+
+nav .menu li a:hover{
+    background-color: rgb(58, 53, 53);
+    color: white;
+    box-shadow: 5px 10px 30px;
+    transition: all ease 0.2s;
+} 
+
+
+input{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+
+input[type="text"]{
+    background-color: rgb(91, 88, 88);
+    width: 340px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    border-radius: 25px 0 0 25px;
+    color: white;
+   margin-top: 15px;
+
+} 
+
+input[type="submit"]{
+    position: relative;
+    left: -5px;
+    border-radius: 0 25px 25px 0;
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(231, 156, 16);
+    color: white;
+   margin-top: 15px;
+}
+
+
+input[type="submit"]:hover{
+    background-color: rgb(251, 110, 10)
+} 
+
+
+
+#search_result{
+    display: flex;
+    padding-top: 2em;
+    max-width: 60em;
+    display: flex;
+    overflow: scroll;
+    background-color: black;
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.box{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

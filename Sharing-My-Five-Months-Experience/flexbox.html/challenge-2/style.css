@@ -1,0 +1,29 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+#application{
+    background-color: aqua;
+
+}
+
+#to-push{
+    flex-grow: 1;
+    background-color:bisque;
+}
+
+#lorem{
+    flex-grow:1;
+}
+
+#lorem-and-button{
+    background-color:aqua;
+    display:flex;
+   
+}
+

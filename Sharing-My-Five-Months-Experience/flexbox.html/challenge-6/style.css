@@ -1,0 +1,33 @@
+html,body{
+    height: 100%;
+    margin:0;
+    
+}
+
+body{
+    display: flex;
+
+}
+
+.side-nav{
+    background-color: aqua;
+    width: 200px;
+    min-width: 200px;   
+}
+
+.content{
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content{
+    background-color: pink;
+    flex-grow: 1;
+}
+
+.content > .footer{
+    background-color: gray;
+    
+    
+}
