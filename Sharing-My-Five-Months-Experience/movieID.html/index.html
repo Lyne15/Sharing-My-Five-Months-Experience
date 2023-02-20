@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.6.3.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <image id="poster" />
+    <div id="main-content">
+        <p id="original_title">movie title</p>
+        <p id="overview"></p>
+
+
+
+        <div class="content">
+            <ul>
+                PRODUCTION COMPANY
+                <h3 id="production_company"></h3>
+               
+            </ul>
+
+
+            <ul>
+                GENRES
+                <h3 id="movieGenres"></h3>
+             
+            </ul>
+
+            <ul>
+                <h3>RELEASED DATE</h3>
+                <li id="release_date"></li>
+            </ul>
+
+            <ul>
+                <h3>VOTE AVERAGE</h3>
+                <li id="vote_average"></li>
+                <h3>VOTE COUNT</h3>
+                <li id="vote_count"></li>
+            </ul>
+
+            <ul>
+                <h3>TAGLINE</h3>
+                <li id="tagline"></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+
+
+        let movieID = new URLSearchParams(window.location.search).get("movieID");
+
+        const API_KEY = "1a76d232bd9ec86e6d73d8a2ef6962e6";
+        const API_URL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}`;
+        const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w200/";
+
+
+        fetch(API_URL)
+            .then(res => res.json())
+            .then(function (data) {
+                console.log(data);
+                const imageUrl = BASE_IMAGE_URL + data.poster_path;
+                $("#poster").attr("src", imageUrl);
+
+                $("#original_title").html(data.title);
+                $("#overview").html(data.overview);
+              
+                $("#release_date").html(data.release_date);
+                $("#tagline").html(data.tagline);
+                $("#vote_average").html(data.vote_average);
+                $("#vote_count").html(data.vote_count);
+
+
+
+
+                for (let i = 0; i < data.production_companies.length; i++) {
+                    // const nn = console.log(data.genres[i].name);
+                    $("#production_company").append(`<li>${data.production_companies[i].name}</li>`);
+
+                }
+
+
+                for (let i = 0; i < data.genres.length; i++) {
+                    // const nn = console.log(data.genres[i].name);
+                    $("#movieGenres").append(`<li>${data.genres[i].name}</li>`);
+
+                }
+
+               
+
+
+
+
+            });
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

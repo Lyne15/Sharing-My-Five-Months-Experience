@@ -1,0 +1,25 @@
+html,body{
+    margin:0;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+   
+}
+
+#left-side{
+    background-color: aqua;
+    width: 100px;
+    
+}
+
+#right-side{
+    background-color: aqua;
+    width: 100px;
+
+}
+
+#to-push{
+    flex-grow: 1;
+    background-color: pink;
+
+}

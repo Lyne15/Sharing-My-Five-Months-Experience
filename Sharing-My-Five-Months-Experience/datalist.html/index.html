@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.6.3.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+
+    <!------ buttons ---------->
+    <nav>
+        <div id="content">
+            <div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">More</a></li>
+                </ul>
+            </div>
+
+            <!------ search bar ---------->
+
+            <div class="box">
+                <input type="text" id="query" placeholder="search movies...">
+                <input id="button" type="submit" value="Search">
+            </div>
+        </div>
+    </nav>
+
+    <!---second fetch result ----->
+
+    <div id="search_result"></div>
+    <img src="" class="poster" id="poster" />
+
+
+    <!------id's on first fetch---------->
+
+    <p id="movie-list"></p>id
+
+
+
+
+    <script>
+
+        //--------------------------------------------------------------first fetch------------------------------------------------------------
+
+
+        const API_KEY = `1a76d232bd9ec86e6d73d8a2ef6962e6`;
+        const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
+        const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w200";
+
+        fetch(API_URL)
+            .then(res => res.json())
+            .then(function (data) {
+                console.log(data);
+
+
+
+                for (let i = 0; i < data.results.length; i++) {
+                    const movie = data.results[i];
+                    const imgUrl = BASE_IMAGE_URL + movie.poster_path;
+                    console.log(imgUrl);
+                    const title = movie.title;
+                    const genre = movie.genre_ids;
+
+                    $("#movie-list").append(`
+                <li>
+                    <img src="${imgUrl}"/>
+                    <div id="movieTitle">${title}</div>
+                    <div id="genres">${genre}</div>
+                </li>
+            `)
+                }
+
+
+            });
+
+
+
+
+
+
+        //--------------------------------------------------------------second fetch------------------------------------------------------------
+
+
+
+
+
+
+
+        const QUERY = $("#query");
+        const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=1a76d232bd9ec86e6d73d8a2ef6962e6&query=${QUERY}`
+        const IMAGE_URL = "https://image.tmdb.org/t/p/w200";
+
+        fetch(SEARCH_URL)
+            .then(res => res.json())
+            .then(function (data) {
+                console.log(data);
+            });
+
+
+
+
+        $(document).ready(function () {
+            $('#button').click(function () {
+                var query = $("#query").val();
+                $.getJSON(`https://api.themoviedb.org/3/search/movie?api_key=1a76d232bd9ec86e6d73d8a2ef6962e6&query=${query}`, function (data) {
+
+                    $("#search_result").empty()
+
+
+
+                    for (let i = 0; i < data.results.length; i++) {
+                        const search_movie = data.results[i];
+                        const imgUrl_rslt = IMAGE_URL + search_movie.poster_path;
+                        console.log(imgUrl_rslt);
+                        const title_rslt = search_movie.title;
+                        const genre_rslt = search_movie.genre_ids;
+
+                        $("#search_result").append(`
+                        <li>
+                            <img src="${imgUrl_rslt}"/>
+                            <div id="movieTitle">${title_rslt}</div>
+                            <div id="genres">${genre_rslt}</div>
+                        </li>
+                    `)
+                    }
+
+
+                });
+
+            })
+
+        });
+        // function renderMovies(movies){
+        //              for  (let i = 0; i < data.results.length; i++) {
+        //                 $("#search_result").append()
+        //              }
+        //          }
+
+        // renderMovies(movies);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+    <!-- // for (let i = 0; i < data.results.length; i++) {
+                    //     const search_movie = data.results[i];
+                    //     const imgUrl_rslt = IMAGE_URL + search_movie.poster_path;
+                    //     console.log(imgUrl_rslt);
+                    //     const title_rslt = search_movie.title;
+                    //     const genre_rslt = search_movie.genre_ids;
+
+                    //     $("#search_result").append(`
+                    //     <li>
+                    //         <img src="${imgUrl_rslt}"/>
+                    //         <div id="movieTitle">${title_rslt}</div>
+                    //         <div id="genres">${genre_rslt}</div>
+                    //     </li>
+                    // `)
+                    // } -->

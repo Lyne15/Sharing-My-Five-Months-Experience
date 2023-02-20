@@ -1,0 +1,106 @@
+html, body{
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEE;
+
+    
+}
+
+.side-nav{
+    background-color: skyblue;
+    width: 100px;
+    
+   
+    
+}
+
+.top-circle{
+    height: 25px;
+    width: 25px;
+    background-color: rgb(187, 187, 187);
+    border-radius: 50%;
+    /* display: inline-block; */
+   
+}
+
+.content{
+    display: flex;
+    background-color:aqua;
+    
+}
+
+
+#to-push{
+    flex-grow:1;
+}
+
+.main-content{
+    /* display:flex; */
+    max-width: 400px;
+    /* padding: 10px; */
+  
+}
+    
+   
+
+
+.box{
+    width: 50px;
+    height: 50px;
+    background-color: maroon;
+    align-content: center;
+    /* margin-top: 20px; */
+    
+}
+
+#inside{
+    display: flex;
+     /* overflow:scroll; */
+ 
+}
+
+.boxes{
+    /* overflow:scroll; */
+    display:flex;
+    /* align-content: space-between; */
+    gap: 10px;
+    background-color: pink;
+    flex-wrap: wrap;
+    height: 100%;
+    
+  /* gap: 10px 20px;  */
+  /* row-gap: 10px; */
+  /* column-gap: 20px; */
+}
+
+button{
+    background-color: rgb(78, 78, 196);
+    color: white;
+    /* display: flex; */
+   
+}
+
+.footer{
+    background-color: purple;
+    display: flex;
+}
+
+
+
+.push-the-button{
+    flex-grow:1;
+}
+
+
+
+
+
+
+
